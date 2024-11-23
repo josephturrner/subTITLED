@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Embed YouTube Video</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="d-flex align-middle w-100 justify-content-between">
+      <div class="d-flex justify-content-evenly align-middle">
+        {% load static %}
+        <img src="{% static 'images/subtitledLogo.svg' %}" alt="">
+        <h1 class="navbar-brand">subTITLED</h1>
+      </div>
+      <form class="d-flex align-middle" action="" method="post">
+        {% csrf_token %}  
+        {{ videoInputForm }}
+        <input class="btn btn-outline-success" type="submit" value="Submit">
+      </form>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+      <h1>Embed YouTube Video</h1>
+
+      {% if video_id %}
+          <hr>
+          <h3>Embedded Video:</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; subtitles" 
+                  allowfullscreen>
+          </iframe>
+      {% endif %}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

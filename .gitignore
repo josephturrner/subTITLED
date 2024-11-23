@@ -1,0 +1,17 @@
+# Virtual environment
+App/
+.App/
+
+# Python files
+*.pyc
+__pycache__/
+
+# Django-related
+*.sqlite3
+db.sqlite3
+staticfiles/
+media/
+
+# OS-specific
+.DS_Store
+Thumbs.db
